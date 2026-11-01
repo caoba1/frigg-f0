@@ -13,7 +13,7 @@ dist/
 .env
 .env.*
 !.env.example
-.vscode/settings.json
+.vscode/
 *.code-workspace
 
 # Runtime output
