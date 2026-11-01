@@ -3,8 +3,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 """
-Audio Processor - Pure Python Implementation
-Replaces the C++ binary with efficient NumPy operations
+Audio Processor - Pure Python / NumPy implementation, with an optional
+native (pybind11/C++) extension for the hottest paths.
 """
 
 import numpy as np
@@ -19,6 +19,11 @@ try:
 except ImportError:
     aubio = None
 
+try:
+    import frigg_dsp as _native_dsp
+except ImportError:
+    _native_dsp = None
+
 from config_processing import ProcessingConfig
 from schemas import FrameAnalysisResult
 
@@ -31,10 +36,19 @@ DEFAULT_THRESHOLD = 0.3
 if aubio is None:
     logger.warning("aubio not installed — YIN pitch detection disabled, falling back to autocorrelation")
 
+if _native_dsp is None:
+    logger.info(
+        "frigg_dsp native extension not found — using pure NumPy/Python DSP "
+        "(see backend/native/README.md to build the optional C++ extension)"
+    )
+
 
 def calculate_energy(samples: np.ndarray) -> float:
     """
     Calcula RMS energy de las muestras de audio.
+
+    Uses the native frigg_dsp extension when available, falling back to
+    NumPy otherwise (see backend/native/README.md).
 
     Args:
         samples: Array NumPy de samples normalizados (-1 a 1)
@@ -44,6 +58,8 @@ def calculate_energy(samples: np.ndarray) -> float:
     """
     if len(samples) == 0:
         return 0.0
+    if _native_dsp is not None:
+        return _native_dsp.calculate_energy(np.ascontiguousarray(samples, dtype=np.float64))
     return float(np.sqrt(np.mean(samples ** 2)))
 
 
@@ -124,6 +140,11 @@ def detect_pitch_autocorrelation(
     """
     Detecta pitch usando autocorrelación (algoritmo clásico robusto).
 
+    Uses the native frigg_dsp extension when available (same algorithm, but
+    without numpy.correlate's O(n^2) full-convolution cost), falling back to
+    the pure NumPy/Python implementation otherwise — see
+    _detect_pitch_autocorrelation_py and backend/native/README.md.
+
     Args:
         samples: Array de muestras normalizadas
         sample_rate: Frecuencia de muestreo (Hz)
@@ -133,6 +154,20 @@ def detect_pitch_autocorrelation(
     Returns:
         Pitch detectado en Hz, o None si no hay señal clara
     """
+    if _native_dsp is not None:
+        return _native_dsp.detect_pitch_autocorrelation(
+            np.ascontiguousarray(samples, dtype=np.float64), sample_rate, min_freq, max_freq
+        )
+    return _detect_pitch_autocorrelation_py(samples, sample_rate, min_freq, max_freq)
+
+
+def _detect_pitch_autocorrelation_py(
+    samples: np.ndarray,
+    sample_rate: int,
+    min_freq: int = 80,
+    max_freq: int = 1000
+) -> Optional[float]:
+    """Pure NumPy/Python fallback used when frigg_dsp isn't built (see module docstring)."""
     if len(samples) < 2048:
         return None
 

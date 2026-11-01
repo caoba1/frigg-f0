@@ -4,6 +4,7 @@ __pycache__/
 *.egg-info/
 .venv/
 venv/
+*.so
 
 # Frontend
 node_modules/
@@ -20,6 +21,7 @@ dist/
 *.log
 .run_local_logs/
 backend/build/
+backend/native/build/
 
 # OS metadata
 .DS_Store
