@@ -1,0 +1,24 @@
+{
+  "name": "frigg-f0-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "predev": "npm run typecheck",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+  "react-dom": "^18.3.1",
+  "wavesurfer.js": "^7.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^3.1.0",
+    "typescript": "^5.0.0",
+    "vite": "^4.0.0"
+  }
+}

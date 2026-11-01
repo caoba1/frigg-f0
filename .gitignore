@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Frontend
+node_modules/
+dist/
+
+# Local configuration and environment
+.env
+.env.*
+!.env.example
+.vscode/settings.json
+*.code-workspace
+
+# Runtime output
+*.log
+.run_local_logs/
+backend/build/
+
+# OS metadata
+.DS_Store
+Thumbs.db

@@ -1,0 +1,6 @@
+flask>=2.3.0
+numpy>=1.24.0
+scipy>=1.10.0
+aubio>=0.4.9  # YIN pitch detection
+python-dotenv>=1.0.0
+gunicorn>=21.0.0  # Para production (opcional)

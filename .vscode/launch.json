@@ -1,0 +1,45 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "firefox",
+      "request": "launch",
+      "name": "Debug Frontend in Firefox",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/frontend/src",
+      "reAttach": true,
+      "preLaunchTask": "Vite Dev Server",
+      "pathMappings": [
+        {
+          "url": "http://localhost:5173/src",
+          "path": "${workspaceFolder}/frontend/src"
+        }
+      ]
+    },
+    {
+      "type": "cppdbg",
+      "request": "launch",
+      "name": "Debug Backend (yin_server)",
+      "program": "${workspaceFolder}/backend/build/yin_server",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/backend/build",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "preLaunchTask": "Build Backend (CMake)"
+    },
+    {
+      "type": "cppdbg",
+      "request": "launch",
+      "name": "Run Backend (yin_server)",
+      "program": "${workspaceFolder}/backend/build/yin_server",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/backend/build",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb"
+    }
+  ]
+}

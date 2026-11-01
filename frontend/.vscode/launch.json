@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "firefox",
+      "request": "launch",
+      "name": "Debug Frontend in Firefox",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/src",
+      "reAttach": true,
+      "preLaunchTask": "Vite Dev Server"
+    }
+  ]
+}
