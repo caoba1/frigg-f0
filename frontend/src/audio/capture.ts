@@ -1,3 +1,7 @@
+// frigg
+// Copyright (C) 2026 Carlos de Obaldia Pastor
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 // Audio capture using MediaRecorder and Web Audio API
 export async function getMicrophoneStream(): Promise<MediaStream> {
   return await navigator.mediaDevices.getUserMedia({ audio: true });

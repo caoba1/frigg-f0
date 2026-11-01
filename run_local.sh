@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+# frigg
+# Copyright (C) 2026 Carlos de Obaldia Pastor
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 set -euo pipefail
 
 SCRIPT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

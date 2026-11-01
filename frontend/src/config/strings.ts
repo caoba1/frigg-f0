@@ -1,3 +1,7 @@
+// frigg
+// Copyright (C) 2026 Carlos de Obaldia Pastor
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 /**
  * Single source of truth for every piece of user-facing text in the frontend.
  * Centralized here so the whole app can be translated by editing this one file.

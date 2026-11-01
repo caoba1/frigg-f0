@@ -1,3 +1,7 @@
+# frigg
+# Copyright (C) 2026 Carlos de Obaldia Pastor
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 """
 Flask HTTP shim: receives per-frame base64 WAV blobs from the frontend and
 returns a FrameAnalysisResult (see schemas.py) computed by audio_processor.

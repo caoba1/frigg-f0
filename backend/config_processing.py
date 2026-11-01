@@ -1,3 +1,7 @@
+# frigg
+# Copyright (C) 2026 Carlos de Obaldia Pastor
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 """
 Audio-analysis / DSP tuning parameters — pitch detection thresholds and the
 sliding-window framing used by /api/analyze_frame (audio_processor.py).

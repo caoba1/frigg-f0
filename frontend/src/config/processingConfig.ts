@@ -1,3 +1,7 @@
+// frigg
+// Copyright (C) 2026 Carlos de Obaldia Pastor
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 /**
  * Audio processing / DSP configuration — the single source of truth for
  * sample rate, sliding-window pitch-analysis framing, session length, and

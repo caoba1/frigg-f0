@@ -1,3 +1,7 @@
+// frigg
+// Copyright (C) 2026 Carlos de Obaldia Pastor
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import React, { useRef, useEffect, useState } from 'react';
 import { debugLog } from '../utils/debug';
 import { colors, PITCH_AXIS_MIN_HZ, PITCH_AXIS_MAX_HZ, PITCH_CANVAS_HEIGHT_PX, DEFAULT_PITCH_MODE } from '../config/uiConfig';

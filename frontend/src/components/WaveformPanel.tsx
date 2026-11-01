@@ -1,3 +1,7 @@
+// frigg
+// Copyright (C) 2026 Carlos de Obaldia Pastor
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import React, { useEffect, useRef, useState } from 'react';
 import WaveSurfer from 'wavesurfer.js/dist/wavesurfer.esm.js';
 import SpectrogramPlugin from 'wavesurfer.js/dist/plugins/spectrogram.esm.js';
