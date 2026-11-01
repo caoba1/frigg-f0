@@ -24,3 +24,8 @@ backend/build/
 # OS metadata
 .DS_Store
 Thumbs.db
+
+# Local-only files (kept on disk, not tracked in git)
+IMG_20260505_165139976.jpg
+README-dev-laufend.md
+README-dev.md
