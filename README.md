@@ -1,6 +1,6 @@
 # Audio Pitch Demonstrator — User Guide
 
-Welcome! This web app lets you record or upload audio, then see real-time pitch analysis using a state-of-the-art algorithm. It’s designed for musicians, researchers, and anyone curious about sound.
+This web app lets you record or upload audio, then see real-time pitch analysis using a state-of-the-art algorithm. It’s designed for musicians, researchers, and anyone curious about sound.
 
 ## What You Can Do
 - **Record** your voice or instrument and see the pitch contour live.
